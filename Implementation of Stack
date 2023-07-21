@@ -14,6 +14,13 @@ class Stack {
     return null;
     }
 
+ peek() {
+ if (!this.isEmpty()) {
+ return this.items[this.items.length - 1];
+    }
+ return null;
+    }
+
  clear() {
    this.items = [];
     }  
@@ -31,5 +38,8 @@ const stack = new Stack();
 
   const poppedElement = stack.pop();
   console.log("Element that will be popped is:", poppedElement); 
+
+  const topElement = stack.peek();
+  console.log("Top element:", topElement);
   
   stack.printStack(); 

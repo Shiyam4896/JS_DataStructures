@@ -6,6 +6,14 @@
  enqueue(item) {
   this.items.push(item);
 }
+
+ dequeue() {
+   if (this.isEmpty()) {
+     return "Queue is empty.";
+}
+     return this.items.shift();
+}
+
 const queue = new Queue();
   queue.enqueue(10);
   queue.enqueue(20);
@@ -15,4 +23,7 @@ print() {
   console.log(this.items);
   
   console.log("Queue elements:");
+  queue.print();
+
+  console.log("Dequeue:", queue.dequeue());
   queue.print();

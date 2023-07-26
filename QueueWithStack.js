@@ -10,6 +10,21 @@ class QueueWithStack {
   isEmpty() {
       return this.stack1.length === 0 && this.stack2.length === 0;
     }
+
+    dequeue() {
+      if (this.stack1.length === 0 && this.stack2.length === 0) {
+        return null; 
+      }
+  
+      
+      if (this.stack2.length === 0) {
+        while (this.stack1.length > 0) {
+          this.stack2.push(this.stack1.pop());
+        }
+      }
+  
+      return this.stack2.pop();
+    }
   
     print() {
       if (this.isEmpty()) {

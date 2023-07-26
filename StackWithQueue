@@ -7,8 +7,24 @@ class StackWithQueue {
     push(value) {
      this.queue1.push(value);
  }
+
+    pop() {
+     if (this.queue1.length === 0) {
+     return null;
+ }
+  
+     while (this.queue1.length > 1) {
+     this.queue2.push(this.queue1.shift());
+ }
+  
+     const poppedValue = this.queue1.shift();
+  
+     [this.queue1, this.queue2] = [this.queue2, this.queue1];
+  
+     return poppedValue;
+ }
     isEmpty() {
-     return this.queue1.length === 0;
+    return this.queue1.length === 0;
  }
   
     print() {
@@ -31,3 +47,6 @@ class StackWithQueue {
     stack.push(3);
   
     stack.print();  
+
+    stack.pop();
+    stack.print();

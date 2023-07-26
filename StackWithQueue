@@ -23,20 +23,39 @@ class StackWithQueue {
   
      return poppedValue;
  }
+
+    top() {
+     if (this.queue1.length === 0) {
+     return null;
+ }
+  
+    while (this.queue1.length > 1) {
+       this.queue2.push(this.queue1.shift());
+}
+  
+    const topValue = this.queue1[0];
+    this.queue2.push(this.queue1.shift());
+    [this.queue1, this.queue2] = [this.queue2, this.queue1];
+  
+    return topValue;
+    }
+
     isEmpty() {
     return this.queue1.length === 0;
  }
   
-    print() {
-      if (this.queue1.length === 0) {
+   print() {
+    if (this.queue1.length === 0) {
       console.log("Stack is empty.");
       return;
  }
-  
+
     console.log("Stack elements:");
-      for (let i = this.queue1.length - 1; i >= 0; i--) {
+    for (let i = this.queue1.length - 1; i >= 0; i--) {
       console.log(this.queue1[i]);
  }
+
+    console.log("Top value:", this.top());
  }
  }
   
@@ -49,4 +68,7 @@ class StackWithQueue {
     stack.print();  
 
     stack.pop();
+    stack.print();
+
+    stack.top();
     stack.print();

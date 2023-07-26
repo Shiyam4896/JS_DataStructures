@@ -7,9 +7,7 @@ class QueueWithStack {
     enqueue(value) {
       this.stack1.push(value);
     }
-  isEmpty() {
-      return this.stack1.length === 0 && this.stack2.length === 0;
-    }
+  
 
     dequeue() {
       if (this.stack1.length === 0 && this.stack2.length === 0) {
@@ -25,7 +23,26 @@ class QueueWithStack {
   
       return this.stack2.pop();
     }
+    
+    front() {
+      if (this.stack1.length === 0 && this.stack2.length === 0) {
+        return null; 
+      }
   
+      
+      if (this.stack2.length === 0) {
+        while (this.stack1.length > 0) {
+          this.stack2.push(this.stack1.pop());
+        }
+      }
+  
+      return this.stack2[this.stack2.length - 1];
+    }
+    
+    isEmpty() {
+      return this.stack1.length === 0 && this.stack2.length === 0;
+    }
+    
     print() {
       if (this.isEmpty()) {
         console.log("Queue is empty.");
@@ -44,3 +61,6 @@ class QueueWithStack {
       for (let i = this.stack2.length - 1; i >= 0; i--) {
         console.log(this.stack2[i]);
       }
+         console.log("Front of the queue:", this.front());
+    }
+  }

@@ -4,4 +4,4 @@ The current problems which are to be solved are:
  * Implementation of Stack (Completed)
  * Implementation of Queue (Completed)
  * Implementation of Stack using Queue(Completed)
- * Implementation of Queue using Stack 
+ * Implementation of Queue using Stack (Completed)

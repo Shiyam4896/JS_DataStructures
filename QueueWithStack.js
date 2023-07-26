@@ -64,3 +64,16 @@ class QueueWithStack {
          console.log("Front of the queue:", this.front());
     }
   }
+
+    const queue = new QueueWithStack();
+ 
+    queue.enqueue(1);
+    queue.enqueue(2);
+    queue.enqueue(3);
+  
+    queue.print();
+    
+    console.log(queue.dequeue()); 
+  
+    queue.enqueue(4);
+    queue.print();
